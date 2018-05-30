@@ -15,7 +15,7 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   injectedProvider = window.web3.currentProvider
   web3 = new Web3(injectedProvider)
 } else {
-  web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'))
+  web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:5010'))
 }
 
 var blankWeb3 = new Web3()
@@ -195,7 +195,7 @@ function ExecutionContext () {
 
   this._updateBlockGasLimit = function () {
     if (this.getProvider() !== 'vm') {
-      web3.eth.getBlock('latest', (err, block) => {
+      web3.okc.getBlock('latest', (err, block) => {
         if (!err) {
           // we can't use the blockGasLimit cause the next blocks could have a lower limit : https://github.com/ethereum/remix/issues/506
           this.blockGasLimit = (block && block.gasLimit) ? Math.floor(block.gasLimit - (5 * block.gasLimit) / 1024) : this.blockGasLimitDefault

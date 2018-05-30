@@ -89,11 +89,11 @@ TxBrowser.prototype.submit = function () {
   try {
     var self = this
     if (this.txNumber.indexOf('0x') !== -1) {
-      global.web3.eth.getTransaction(this.txNumber, function (error, result) {
+      global.web3.okc.getTransaction(this.txNumber, function (error, result) {
         self.update(error, result)
       })
     } else {
-      global.web3.eth.getTransactionFromBlock(this.blockNumber, this.txNumber, function (error, result) {
+      global.web3.okc.getTransactionFromBlock(this.blockNumber, this.txNumber, function (error, result) {
         self.update(error, result)
       })
     }
@@ -142,7 +142,7 @@ TxBrowser.prototype.updateWeb3Url = function (newhost) {
 
 TxBrowser.prototype.checkWeb3 = function (callback) {
   try {
-    global.web3.eth.getBlockNumber(function (error, block) {
+    global.web3.okc.getBlockNumber(function (error, block) {
       callback(error, block)
     })
   } catch (e) {

@@ -29,7 +29,7 @@ module.exports = {
 
   loadCode: function (address, callback) {
     console.log('loading new code from web3 ' + address)
-    global.web3.eth.getCode(address, function (error, result) {
+    global.web3.okc.getCode(address, function (error, result) {
       if (error) {
         console.log(error)
       } else {

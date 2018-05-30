@@ -20,9 +20,9 @@ tape('CodeManager', function (t) {
       global.web3 = obj
       var traceManager = new TraceManager()
       codeManager = new CodeManager(traceManager)
-      var contractCode = global.web3.eth.getCode('0x0d3a18d64dfe4f927832ab58d6451cecc4e517c5')
+      var contractCode = global.web3.okc.getCode('0x0d3a18d64dfe4f927832ab58d6451cecc4e517c5')
       codeManager.codeResolver.cacheExecutingCode('0x0d3a18d64dfe4f927832ab58d6451cecc4e517c5', contractCode) // so a call to web3 is not necessary
-      var tx = global.web3.eth.getTransaction('0x20ef65b8b186ca942fcccd634f37074dde49b541c27994fc7596740ef44cfd51')
+      var tx = global.web3.okc.getTransaction('0x20ef65b8b186ca942fcccd634f37074dde49b541c27994fc7596740ef44cfd51')
       traceManager.resolveTrace(tx, function (error, result) {
         if (error) {
           t.fail(' - traceManager.resolveTrace - failed ' + result)
@@ -63,7 +63,7 @@ function continueTesting (t, codeManager) {
         }
       }
     })
-    var tx = global.web3.eth.getTransaction('0x20ef65b8b186ca942fcccd634f37074dde49b541c27994fc7596740ef44cfd51')
+    var tx = global.web3.okc.getTransaction('0x20ef65b8b186ca942fcccd634f37074dde49b541c27994fc7596740ef44cfd51')
     codeManager.resolveStep(0, tx)
     codeManager.resolveStep(70, tx)
   })

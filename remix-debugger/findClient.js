@@ -1,43 +1,43 @@
 var which = require('which')
 
-var geth = null
-var eth = null
+var gokc = null
+var okc = null
 
 try {
-  geth = which.sync('geth')
+  gokc = which.sync('gokc')
 } catch (e) {
 }
 
 try {
-  eth = which.sync('eth')
+  okc = which.sync('okc')
 } catch (e) {
 }
 if (process.argv.length > 2) {
-  if (geth && process.argv[2] === 'geth') {
-    runGeth()
-  } else if (eth && process.argv[2] === 'eth') {
-    runEth()
+  if (gokc && process.argv[2] === 'gokc') {
+    runGokc()
+  } else if (okc && process.argv[2] === 'okc') {
+    runokc()
   }
-} else if (geth && eth) {
-  console.log('both eth and geth has been found in your system')
+} else if (gokc && okc) {
+  console.log('both okc and gokc has been found in your system')
   console.log('restart the command with the desired client:')
-  console.log('npm run start_eth')
+  console.log('npm run start_okc')
   console.log('or')
-  console.log('npm run start_geth')
-} else if (geth) {
-  runGeth()
-} else if (eth) {
-  runEth()
+  console.log('npm run start_gokc')
+} else if (gokc) {
+  runGokc()
+} else if (okc) {
+  runOkc()
 } else {
-  console.log('neither eth or geth has been found in your system')
+  console.log('neither okc or gokc has been found in your system')
 }
 
-function runEth () {
-  console.log('starting eth...')
+function runOkc () {
+  console.log('starting okc...')
   process.exit(20)
 }
 
-function runGeth () {
-  console.log('starting geth...')
+function runGokc () {
+  console.log('starting gokc..')
   process.exit(21)
 }

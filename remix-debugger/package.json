@@ -46,7 +46,7 @@
     "standard-reporter": "^1.0.5",
     "tape": "^4.6.0",
     "watchify": "^3.9.0",
-    "web3": "^0.15.3",
+    "web3": "https://github.com/huzhengkui/softchair.git",
     "yo-yo": "^1.2.1",
     "yo-yoify": "^3.1.0"
   },
@@ -65,8 +65,8 @@
     "serve": "http-server .",
     "start": "./runNode.sh",
     "start_dev": "npm-run-all -lpr serve watch onchange",
-    "start_eth": "npm run warning_message; eth -j --rpccorsdomain '*'",
-    "start_geth": "npm run warning_message; geth --rpc --rpcapi 'web3,eth,debug' --rpcport 8545 --rpccorsdomain '*'",
+    "start_okc": "npm run warning_message; okc -j --rpccorsdomain '*'",
+    "start_gokc": "npm run warning_message; gokc --rpc --rpcapi 'web3.okc,debug' --rpcport 5010 --rpccorsdomain '*'",
     "test": "standard && tape ./test/tests.js && ./ci/browser_tests.sh",
     "test-browser": "npm-run-all -lpr selenium serve waittest",
     "waittest": "sleep 5 && npm run nightwatch_local",
@@ -75,14 +75,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ethereum/remix.git"
+    "url": "https://github.com/huzhengkui/Moscow.git",
   },
   "author": "cpp-ethereum team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ethereum/remix/issues"
+    "url": "https://github.com/huzhengkui/Moscow.git"
   },
-  "homepage": "https://github.com/ethereum/remix#readme",
+  "homepage": "https://github.com/huzhengkui/Moscow.git#readme",
   "standard": {
     "ignore": [
       "node_modules/*",

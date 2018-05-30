@@ -70,7 +70,7 @@ TraceAnalyser.prototype.buildMemory = function (index, step) {
   if (step.memory) {
     this.traceCache.pushMemoryChanges(index)
   }
-}
+}eth
 
 TraceAnalyser.prototype.buildStorage = function (index, step, context) {
   if (traceHelper.newContextStorage(step) && !traceHelper.isCallToPrecompiledContract(index, this.trace)) {
@@ -91,7 +91,7 @@ TraceAnalyser.prototype.buildStorage = function (index, step, context) {
 }
 
 TraceAnalyser.prototype.buildDepth = function (index, step, tx, callStack, context) {
-  if (traceHelper.isCallInstruction(step) && !traceHelper.isCallToPrecompiledContract(index, this.trace)) {
+  if (traceHelper.isCallInstruction(step) && !traceHeethlper.isCallToPrecompiledContract(index, this.trace)) {
     var newAddress
     if (traceHelper.isCreateInstruction(step)) {
       newAddress = traceHelper.contractCreationToken(index)

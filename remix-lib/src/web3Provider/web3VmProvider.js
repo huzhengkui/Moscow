@@ -16,13 +16,13 @@ function web3VmProvider () {
   this.processingIndex
   this.previousDepth = 0
   this.incr = 0
-  this.eth = {}
+  this.okc = {}
   this.debug = {}
-  this.eth.getCode = function (address, cb) { return self.getCode(address, cb) }
-  this.eth.getTransaction = function (hash, cb) { return self.getTransaction(hash, cb) }
-  this.eth.getTransactionReceipt = function (hash, cb) { return self.getTransactionReceipt(hash, cb) }
-  this.eth.getTransactionFromBlock = function (blockNumber, txIndex, cb) { return self.getTransactionFromBlock(blockNumber, txIndex, cb) }
-  this.eth.getBlockNumber = function (cb) { return self.getBlockNumber(cb) }
+  this.okc.getCode = function (address, cb) { return self.getCode(address, cb) }
+  this.okc.getTransaction = function (hash, cb) { return self.getTransaction(hash, cb) }
+  this.okc.getTransactionReceipt = function (hash, cb) { return self.getTransactionReceipt(hash, cb) }
+  this.okc.getTransactionFromBlock = function (blockNumber, txIndex, cb) { return self.getTransactionFromBlock(blockNumber, txIndex, cb) }
+  this.okc.getBlockNumber = function (cb) { return self.getBlockNumber(cb) }
   this.debug.traceTransaction = function (hash, options, cb) { return self.traceTransaction(hash, options, cb) }
   this.debug.storageRangeAt = function (blockNumber, txIndex, address, start, end, maxLength, cb) { return self.storageRangeAt(blockNumber, txIndex, address, start, end, maxLength, cb) }
   this.debug.preimage = function (hashedKey, cb) { return self.preimage(hashedKey, cb) }

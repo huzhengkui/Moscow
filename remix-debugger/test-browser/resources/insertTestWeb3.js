@@ -15,9 +15,9 @@ function loadTestWeb3 (data) {
   var container = document.getElementById('app')
   var vmdebugger = container.debugger
   var uiTestweb3 = {}
-  uiTestweb3.eth = {}
+  uiTestweb3.okc = {}
   uiTestweb3.debug = {}
-  uiTestweb3.eth.getCode = function (address, callback) {
+  uiTestweb3.okc.getCode = function (address, callback) {
     if (callback) {
       callback(null, data.testCodes[address])
     } else {
@@ -33,7 +33,7 @@ function loadTestWeb3 (data) {
     callback(null, { storage: {}, complete: true })
   }
 
-  uiTestweb3.eth.getTransaction = function (txHash, callback) {
+  uiTestweb3.okc.getTransaction = function (txHash, callback) {
     if (callback) {
       callback(null, data.testTxs[txHash])
     } else {
@@ -41,7 +41,7 @@ function loadTestWeb3 (data) {
     }
   }
 
-  uiTestweb3.eth.getTransactionFromBlock = function (blockNumber, txIndex, callback) {
+  uiTestweb3.okc.getTransactionFromBlock = function (blockNumber, txIndex, callback) {
     if (callback) {
       callback(null, data.testTxsByBlock[blockNumber + '-' + txIndex])
     } else {
@@ -49,7 +49,7 @@ function loadTestWeb3 (data) {
     }
   }
 
-  uiTestweb3.eth.getBlockNumber = function (callback) { callback(null, 'web3 modified for testing purposes :)') }
+  uiTestweb3.okc.getBlockNumber = function (callback) { callback(null, 'web3 modified for testing purposes :)') }
 
   uiTestweb3.providers = { 'HttpProvider': function (url) {} }
 

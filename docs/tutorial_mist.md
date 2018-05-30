@@ -83,7 +83,7 @@ Once Mist is started, verify that it is connected to the test node
 On the bottom left, check that the network is `Private-net` and that the
 block number is the same as reported by the test node we are currently
 running. Run the following command in the Geth Console to check:
-web3.eth.blockNumber.
+web3.okc.blockNumber.
 
 ![image](mist1.png)
 
@@ -207,11 +207,11 @@ function movefund () {
         })
 }
 
-var contractspec = web3.eth.contract([{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"moveFund","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"donate","outputs":[],"payable":true,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_to","type":"address"},{"indexed":false,"name":"_amount","type":"uint256"}],"name":"fundMoved","type":"event"}]);
+var contractspec = web3.okc.contract([{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_amount","type":"uint256"}],"name":"moveFund","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"donate","outputs":[],"payable":true,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"_to","type":"address"},{"indexed":false,"name":"_amount","type":"uint256"}],"name":"fundMoved","type":"event"}]);
 
 function tryTillResponse (txhash, done) {
     document.getElementById('wait').innerHTML = 'waiting for the transaction to be mined ...'
-    web3.eth.getTransactionReceipt(txhash, function (err, result) {
+    web3.okc.getTransactionReceipt(txhash, function (err, result) {
         if (!err && !result) {
             // Try again with a bit of delay
             setTimeout(function () { tryTillResponse(txhash, done) }, 500)

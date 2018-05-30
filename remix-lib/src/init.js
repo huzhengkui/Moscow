@@ -3,7 +3,7 @@ var Web3 = require('web3')
 
 module.exports = {
   loadWeb3: function (url) {
-    if (!url) url = 'http://localhost:8545'
+    if (!url) url = 'http://localhost:5010'
     var web3 = new Web3()
     web3.setProvider(new web3.providers.HttpProvider(url))
     this.extend(web3)
