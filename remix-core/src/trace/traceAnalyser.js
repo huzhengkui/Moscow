@@ -70,7 +70,7 @@ TraceAnalyser.prototype.buildMemory = function (index, step) {
   if (step.memory) {
     this.traceCache.pushMemoryChanges(index)
   }
-}eth
+}
 
 TraceAnalyser.prototype.buildStorage = function (index, step, context) {
   if (traceHelper.newContextStorage(step) && !traceHelper.isCallToPrecompiledContract(index, this.trace)) {
