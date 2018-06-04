@@ -122,7 +122,7 @@ function ExecutionContext () {
         else name = 'Custom'
 
         if (id === '1') {
-          this.web3().eth.getBlock(0, (error, block) => {
+          this.web3().okc.getBlock(0, (error, block) => {
             if (error) console.log('cant query first block')
             if (block && block.hash !== mainNetGenesisHash) name = 'Custom'
             callback(err, { id, name })

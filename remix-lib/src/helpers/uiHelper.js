@@ -7,7 +7,7 @@ module.exports = {
     }
 
     if (!mem.substr) {
-      mem = mem.join('') // geth returns an array, eth return raw string
+      mem = mem.join('') // geth returns an array, okc return raw string
     }
 
     for (var k = 0; k < mem.length; k += (width * 2)) {
