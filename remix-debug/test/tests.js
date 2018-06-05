@@ -19,7 +19,7 @@ tape('debug contract', function (t) {
     if (error) {
       t.end(error)
     } else {
-      web3VM.eth.getTransaction(txHash, (error, tx) => {
+      web3VM.okc.getTransaction(txHash, (error, tx) => {
         if (error) {
           t.end(error)
         } else {

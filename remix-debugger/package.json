@@ -70,7 +70,7 @@
     "test": "standard && tape ./test/tests.js && ./ci/browser_tests.sh",
     "test-browser": "npm-run-all -lpr selenium serve waittest",
     "waittest": "sleep 5 && npm run nightwatch_local",
-    "warning_message": "echo 'DO NOT DO THIS IF eth/geth STORES PRIVATE KEYS!! External system might be able to access your node through the RPC server.\n\n';",
+    "warning_message": "echo 'DO NOT DO THIS IF okc/geth STORES PRIVATE KEYS!! External system might be able to access your node through the RPC server.\n\n';",
     "watch": "mkdirp build; watchify index.js -p [ browserify-livereload --host 127.0.0.1 --port 1337 ] -dv -o build/app.js"
   },
   "repository": {

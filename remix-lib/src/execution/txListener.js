@@ -67,7 +67,7 @@ class TxListener {
       // in web3 mode && listen remix txs only
       if (!this._isListening) return // we don't listen
       if (this._loopId && executionContext.getProvider() !== 'vm') return // we seems to already listen on a "web3" network
-      executionContext.web3().eth.getTransaction(txResult.transactionHash, (error, tx) => {
+      executionContext.web3().okc.getTransaction(txResult.transactionHash, (error, tx) => {
         if (error) return console.log(error)
 
         addExecutionCosts(txResult, tx)
@@ -143,7 +143,7 @@ class TxListener {
   _startListenOnNetwork () {
     this._loopId = setInterval(() => {
       var currentLoopId = this._loopId
-      executionContext.web3().eth.getBlockNumber((error, blockNumber) => {
+      executionContext.web3().okc.getBlockNumber((error, blockNumber) => {
         if (this._loopId === null) return
         if (error) return console.log(error)
         if (currentLoopId === this._loopId && (!this.lastBlock || blockNumber > this.lastBlock)) {
@@ -164,7 +164,7 @@ class TxListener {
   }
 
   _manageBlock (blockNumber) {
-    executionContext.web3().eth.getBlock(blockNumber, true, (error, result) => {
+    executionContext.web3().okc.getBlock(blockNumber, true, (error, result) => {
       if (!error) {
         this._newBlock(Object.assign({type: 'web3'}, result))
       }
@@ -241,7 +241,7 @@ class TxListener {
       // first check known contract, resolve against the `runtimeBytecode` if not known
       contractName = this._resolvedContracts[tx.to]
       if (!contractName) {
-        executionContext.web3().eth.getCode(tx.to, (error, code) => {
+        executionContext.web3().okc.getCode(tx.to, (error, code) => {
           if (error) return cb(error)
           if (code) {
             var contractName = this._tryResolveContract(code, contracts, false)

@@ -1,12 +1,12 @@
 'use strict'
 var init = require('../init')
 var web3Override = {}
-web3Override.eth = {}
+web3Override.okc = {}
 web3Override.debug = {}
 var data = init.readFile(require('path').resolve(__dirname, 'testWeb3.json'))
 data = JSON.parse(data)
 
-web3Override.eth.getCode = function (address, callback) {
+web3Override.okc.getCode = function (address, callback) {
   if (callback) {
     callback(null, data.testCodes[address])
   } else {
@@ -22,7 +22,7 @@ web3Override.debug.storageRangeAt = function (blockNumber, txIndex, address, sta
   callback(null, { storage: {}, complete: true })
 }
 
-web3Override.eth.getTransaction = function (txHash, callback) {
+web3Override.okc.getTransaction = function (txHash, callback) {
   if (callback) {
     callback(null, data.testTxs[txHash])
   } else {
@@ -30,7 +30,7 @@ web3Override.eth.getTransaction = function (txHash, callback) {
   }
 }
 
-web3Override.eth.getTransactionFromBlock = function (blockNumber, txIndex, callback) {
+web3Override.okc.getTransactionFromBlock = function (blockNumber, txIndex, callback) {
   if (callback) {
     callback(null, data.testTxsByBlock[blockNumber + '-' + txIndex])
   } else {
@@ -38,13 +38,13 @@ web3Override.eth.getTransactionFromBlock = function (blockNumber, txIndex, callb
   }
 }
 
-web3Override.eth.getBlockNumber = function (callback) { callback('web3 modified testing purposes :)') }
+web3Override.okc.getBlockNumber = function (callback) { callback('web3 modified testing purposes :)') }
 
-web3Override.eth.setProvider = function (provider) {}
+web3Override.okc.setProvider = function (provider) {}
 
-web3Override.eth.providers = { 'HttpProvider': function (url) {} }
+web3Override.okc.providers = { 'HttpProvider': function (url) {} }
 
-web3Override.eth.currentProvider = {'host': 'test provider'}
+web3Override.okc.currentProvider = {'host': 'test provider'}
 
 if (typeof (module) !== 'undefined' && typeof (module.exports) !== 'undefined') {
   module.exports = web3Override

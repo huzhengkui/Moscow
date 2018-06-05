@@ -306,4 +306,4 @@ the workaround or wait for this issue to be closed.
 
 Also, although retrieving a contract's storage when Remix is using the
 JavaScript VM is working well, there is still work to be done when Remix
-is using eth or geth as backend.
+is using okc or geth as backend.

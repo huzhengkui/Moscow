@@ -36,7 +36,7 @@ TxRunner.prototype._executeTx = function (tx, gasPrice, api, promptCb, callback)
       }
     )
   } else {
-    this._sendTransaction(executionContext.web3().eth.sendTransaction, tx, null, callback)
+    this._sendTransaction(executionContext.web3().okc.sendTransaction, tx, null, callback)
   }
 }
 
@@ -132,14 +132,14 @@ TxRunner.prototype.runInNode = function (from, to, data, value, gasLimit, useCal
 
   if (useCall) {
     tx.gas = gasLimit
-    return executionContext.web3().eth.call(tx, function (error, result) {
+    return executionContext.web3().okc.call(tx, function (error, result) {
       callback(error, {
         result: result,
         transactionHash: result.transactionHash
       })
     })
   }
-  executionContext.web3().eth.estimateGas(tx, function (err, gasEstimation) {
+  executionContext.web3().okc.estimateGas(tx, function (err, gasEstimation) {
     gasEstimationForceSend(err, () => {
       // callback is called whenever no error
       tx.gas = !gasEstimation ? gasLimit : gasEstimation
@@ -180,7 +180,7 @@ TxRunner.prototype.runInNode = function (from, to, data, value, gasLimit, useCal
 }
 
 function tryTillResponse (txhash, done) {
-  executionContext.web3().eth.getTransactionReceipt(txhash, function (err, result) {
+  executionContext.web3().okc.getTransactionReceipt(txhash, function (err, result) {
     if (err || !result) {
       // Try again with a bit of delay if error or if result still null
       setTimeout(function () { tryTillResponse(txhash, done) }, 500)

@@ -37,7 +37,7 @@ TraceCache.prototype.pushMemoryChanges = function (value) {
 }
 
 // outOfGas has been removed because gas left logging is apparently made differently
-// in the vm/geth/eth. TODO add the error property (with about the error in all clients)
+// in the vm/geth/okc. TODO add the error property (with about the error in all clients)
 TraceCache.prototype.pushCall = function (step, index, address, callStack, reverted) {
   var validReturnStep = step.op === 'RETURN' || step.op === 'STOP'
   if (validReturnStep || reverted) {

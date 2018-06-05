@@ -286,4 +286,4 @@ The a workaround for that at https://github.com/ethereum/go-ethereum/issues/3653
 Please follow the workaround or wait for this issue to be closed.
 
 Also, although retrieving a contract's storage when Remix is using the JavaScript VM is working well,
-there is still work to be done when Remix is using eth or geth as backend.
+there is still work to be done when Remix is using okc or geth as backend.
